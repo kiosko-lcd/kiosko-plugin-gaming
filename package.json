@@ -4,7 +4,7 @@
   "description": "Game FPS, 1 % low and frame times (MangoHud, PresentMon), and the cooling: fans, pumps and coolant (liquidctl, lm-sensors, LibreHardwareMonitor).",
   "type": "module",
   "license": "MIT",
-  "author": "Loksly",
+  "author": "Loksly <info@kioskolcd.dev> (https://kioskolcd.dev)",
   "keywords": [
     "kiosko",
     "kiosko-plugin",

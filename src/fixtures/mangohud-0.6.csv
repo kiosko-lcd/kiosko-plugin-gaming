@@ -1,0 +1,7 @@
+os,cpu,gpu,ram,kernel,driver
+Ubuntu 22.04.3 LTS,Intel Core i5-12400F,NVIDIA GeForce RTX 3060,16,6.5.0-14-generic,NVIDIA 545.29.06
+fps,frametime,cpu_load,gpu_load,cpu_temp,gpu_temp,gpu_core_clock,gpu_mem_clock,gpu_vram_used,gpu_power,ram_used,elapsed
+59.9821,16.6716,41.2,97,58,66,1852,7501,5.1,151,9.3,16671600
+60.0144,16.6627,40.8,97,58,66,1852,7501,5.1,151,9.3,33334300
+59.8803,16.7000,42.0,98,58,66,1852,7501,5.1,152,9.3,50034300
+30.0300,33.3000,39.5,99,58,66,1852,7501,5.1,152,9.3,83334300

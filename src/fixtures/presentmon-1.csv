@@ -1,0 +1,5 @@
+Application,ProcessID,SwapChainAddress,Runtime,SyncInterval,PresentFlags,AllowsTearing,PresentMode,Dropped,TimeInSeconds,msInPresentAPI,msBetweenPresents,msUntilRenderComplete,msUntilDisplayed,msBetweenDisplayChange
+csgo.exe,10412,0x000001D6B1A2C0F0,DXGI,0,512,1,Hardware: Independent Flip,0,12.40231,0.0712,3.4521,1.1213,2.0210,3.4402
+csgo.exe,10412,0x000001D6B1A2C0F0,DXGI,0,512,1,Hardware: Independent Flip,0,12.40577,0.0701,3.4602,1.1010,2.0012,3.4611
+csgo.exe,10412,0x000001D6B1A2C0F0,DXGI,0,512,1,Hardware: Independent Flip,1,12.40921,0.0698,3.4398,1.0990,,
+dwm.exe,1320,0x00000192F0C21AA0,Other,1,0,0,Composed: Flip,0,12.41002,0.2101,16.6692,0.3022,16.9001,16.6650

@@ -1,0 +1,765 @@
+{
+  "manifest": 1,
+  "id": "gaming",
+  "package": "kiosko-plugin-gaming",
+  "name": {
+    "en": "Gaming",
+    "es": "Juegos",
+    "de": "Gaming",
+    "zh-Hant": "遊戲",
+    "zh-Hans": "游戏"
+  },
+  "version": "0.1.0",
+  "description": {
+    "en": "Game FPS, 1 % low and frame times (MangoHud, PresentMon), and the cooling: fans, pumps and coolant (liquidctl, lm-sensors, LibreHardwareMonitor).",
+    "es": "FPS del juego, 1 % bajo y tiempos de fotograma (MangoHud, PresentMon), y la refrigeración: ventiladores, bombas y líquido (liquidctl, lm-sensors, LibreHardwareMonitor).",
+    "de": "Spiel-FPS, 1-%-Tief und Frametimes (MangoHud, PresentMon) sowie die Kühlung: Lüfter, Pumpen und Kühlmittel (liquidctl, lm-sensors, LibreHardwareMonitor).",
+    "zh-Hant": "遊戲 FPS、1% 低與影格時間（MangoHud、PresentMon），以及散熱：風扇、水泵與冷卻液（liquidctl、lm-sensors、LibreHardwareMonitor）。",
+    "zh-Hans": "游戏 FPS、1% 低和帧时间（MangoHud、PresentMon），以及散热：风扇、水泵和冷却液（liquidctl、lm-sensors、LibreHardwareMonitor）。"
+  },
+  "author": "Loksly",
+  "license": "MIT",
+  "homepage": "https://github.com/kiosko-lcd/kiosko-plugin-gaming#readme",
+  "repository": "https://github.com/kiosko-lcd/kiosko-plugin-gaming",
+  "icon": "gamepad-2",
+  "sdk": "^0.2.0",
+  "platforms": [
+    "linux",
+    "darwin",
+    "win32"
+  ],
+  "languages": [
+    "en",
+    "es",
+    "de",
+    "zh-Hant",
+    "zh-Hans"
+  ],
+  "categories": [
+    "system"
+  ],
+  "tags": [
+    "gaming",
+    "fps",
+    "frame time",
+    "mangohud",
+    "presentmon",
+    "cooling",
+    "fan",
+    "pump",
+    "aio",
+    "liquidctl",
+    "water cooling"
+  ],
+  "permissions": {
+    "exec": [
+      "liquidctl",
+      "sensors",
+      "PresentMon"
+    ],
+    "files": [
+      "~/mangohud"
+    ],
+    "network": [
+      "localhost",
+      "user"
+    ],
+    "devices": [
+      "usb"
+    ]
+  },
+  "riskyOptions": [
+    {
+      "path": "gaming/frames: mangohudFolder",
+      "risk": [
+        "path"
+      ],
+      "secret": false
+    },
+    {
+      "path": "gaming/frames: presentmon",
+      "risk": [
+        "exec"
+      ],
+      "secret": false
+    },
+    {
+      "path": "gaming/frames: presentmonCsv",
+      "risk": [
+        "path"
+      ],
+      "secret": false
+    },
+    {
+      "path": "gaming/cooling: liquidctl",
+      "risk": [
+        "exec"
+      ],
+      "secret": false
+    },
+    {
+      "path": "gaming/cooling: lmSensors",
+      "risk": [
+        "exec"
+      ],
+      "secret": false
+    },
+    {
+      "path": "gaming/cooling: lhmUrl",
+      "risk": [
+        "network"
+      ],
+      "secret": false
+    }
+  ],
+  "requires": [],
+  "optional": [],
+  "widgets": [
+    {
+      "type": "gaming/fps",
+      "name": {
+        "en": "Game FPS",
+        "es": "FPS del juego",
+        "de": "Spiel-FPS",
+        "zh-Hant": "遊戲 FPS",
+        "zh-Hans": "游戏 FPS"
+      },
+      "description": {
+        "en": "The average FPS, big, the 1 % low and a frame-time curve where every stutter shows. Hidden while no game runs.",
+        "es": "Los FPS medios, en grande, el 1 % bajo y una curva de tiempos de fotograma donde se ve cada tirón. Oculto mientras no hay juego.",
+        "de": "Die mittleren FPS groß, das 1-%-Tief und eine Frametime-Kurve, in der jeder Ruckler sichtbar ist. Ausgeblendet, solange kein Spiel läuft.",
+        "zh-Hant": "大字顯示平均 FPS、1% 低，以及能看出每次卡頓的影格時間曲線。沒有遊戲執行時隱藏。",
+        "zh-Hans": "大字显示平均 FPS、1% 低，以及能看出每次卡顿的帧时间曲线。没有游戏运行时隐藏。"
+      },
+      "icon": "gamepad-2",
+      "category": "system",
+      "tags": [
+        "gaming",
+        "fps",
+        "frame time",
+        "mangohud",
+        "presentmon"
+      ],
+      "size": {
+        "min": {
+          "w": 120,
+          "h": 50
+        },
+        "preferred": {
+          "w": 960,
+          "h": 462
+        }
+      },
+      "chrome": "card",
+      "sources": [
+        "gaming/frames"
+      ],
+      "options": {
+        "default": {
+          "fpsWarn": 50,
+          "fpsAlert": 30,
+          "frames": 300,
+          "showGame": true
+        },
+        "x-ui": {},
+        "type": "object",
+        "properties": {
+          "fpsWarn": {
+            "title": "Amber under",
+            "description": "FPS. Frames slower than this are amber in the curve.",
+            "default": 50,
+            "x-ui": {
+              "label": {
+                "en": "Amber under",
+                "es": "Ámbar por debajo de",
+                "de": "Gelb unter",
+                "zh-Hant": "低於此值顯示琥珀色",
+                "zh-Hans": "低于此值显示琥珀色"
+              },
+              "help": {
+                "en": "FPS. Frames slower than this are amber in the curve.",
+                "es": "FPS. Los fotogramas más lentos salen en ámbar en la curva.",
+                "de": "FPS. Langsamere Frames sind in der Kurve gelb.",
+                "zh-Hant": "FPS。比這更慢的影格在曲線中以琥珀色標示。",
+                "zh-Hans": "FPS。比这更慢的帧在曲线中以琥珀色标示。"
+              },
+              "unit": "fps"
+            },
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000
+          },
+          "fpsAlert": {
+            "title": "Red under",
+            "description": "FPS. Frames slower than this are red in the curve: the stutters you feel.",
+            "default": 30,
+            "x-ui": {
+              "label": {
+                "en": "Red under",
+                "es": "Rojo por debajo de",
+                "de": "Rot unter",
+                "zh-Hant": "低於此值顯示紅色",
+                "zh-Hans": "低于此值显示红色"
+              },
+              "help": {
+                "en": "FPS. Frames slower than this are red in the curve: the stutters you feel.",
+                "es": "FPS. Los fotogramas más lentos salen en rojo en la curva: los tirones que se notan.",
+                "de": "FPS. Langsamere Frames sind in der Kurve rot: die Ruckler, die man spürt.",
+                "zh-Hant": "FPS。比這更慢的影格在曲線中以紅色標示：也就是你感覺得到的卡頓。",
+                "zh-Hans": "FPS。比这更慢的帧在曲线中以红色标示：也就是你能感觉到的卡顿。"
+              },
+              "unit": "fps"
+            },
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000
+          },
+          "frames": {
+            "title": "Frames in the curve",
+            "default": 300,
+            "x-ui": {
+              "label": {
+                "en": "Frames in the curve",
+                "es": "Fotogramas en la curva",
+                "de": "Frames in der Kurve",
+                "zh-Hant": "曲線中的影格數",
+                "zh-Hans": "曲线中的帧数"
+              }
+            },
+            "type": "integer",
+            "minimum": 30,
+            "maximum": 1000
+          },
+          "showGame": {
+            "title": "Show the game's name",
+            "default": true,
+            "x-ui": {
+              "label": {
+                "en": "Show the game's name",
+                "es": "Mostrar el nombre del juego",
+                "de": "Namen des Spiels zeigen",
+                "zh-Hant": "顯示遊戲名稱",
+                "zh-Hans": "显示游戏名称"
+              }
+            },
+            "type": "boolean"
+          }
+        }
+      },
+      "screenshot": "docs/fps.png",
+      "animated": false,
+      "urgent": false
+    },
+    {
+      "type": "gaming/cooling",
+      "name": {
+        "en": "Cooling",
+        "es": "Refrigeración",
+        "de": "Kühlung",
+        "zh-Hant": "散熱",
+        "zh-Hans": "散热"
+      },
+      "description": {
+        "en": "Coolant temperature, pump and fan speeds with their duty. Dim until the coolant warms up or a pump slows down.",
+        "es": "Temperatura del líquido, velocidad de bombas y ventiladores con su carga. Apagado hasta que el líquido se calienta o una bomba se frena.",
+        "de": "Kühlmitteltemperatur, Drehzahl von Pumpen und Lüftern mit ihrer Last. Gedimmt, bis das Kühlmittel warm wird oder eine Pumpe langsamer wird.",
+        "zh-Hant": "冷卻液溫度、水泵與風扇轉速及其負載。在冷卻液變熱或水泵變慢前保持暗色。",
+        "zh-Hans": "冷却液温度、水泵和风扇转速及其负载。在冷却液变热或水泵变慢前保持暗色。"
+      },
+      "icon": "fan",
+      "category": "system",
+      "tags": [
+        "cooling",
+        "fan",
+        "pump",
+        "aio",
+        "liquidctl",
+        "water cooling"
+      ],
+      "size": {
+        "min": {
+          "w": 120,
+          "h": 60
+        },
+        "preferred": {
+          "w": 640,
+          "h": 462
+        }
+      },
+      "chrome": "card",
+      "sources": [
+        "gaming/cooling"
+      ],
+      "options": {
+        "default": {
+          "tempWarn": 40,
+          "tempAlert": 45,
+          "pumpWarn": 800,
+          "pumpAlert": 300,
+          "sensors": [],
+          "hideStopped": true
+        },
+        "x-ui": {},
+        "type": "object",
+        "properties": {
+          "tempWarn": {
+            "title": "Amber coolant",
+            "default": 40,
+            "x-ui": {
+              "label": {
+                "en": "Amber coolant",
+                "es": "Líquido ámbar",
+                "de": "Kühlmittel gelb ab",
+                "zh-Hant": "冷卻液琥珀色門檻",
+                "zh-Hans": "冷却液琥珀色阈值"
+              },
+              "unit": "°C"
+            },
+            "type": "integer",
+            "minimum": 20,
+            "maximum": 80
+          },
+          "tempAlert": {
+            "title": "Red coolant",
+            "description": "Most AIOs are rated to about 60 °C; past 45 °C the loop is losing. The widget keeps the tile while it is past it.",
+            "default": 45,
+            "x-ui": {
+              "label": {
+                "en": "Red coolant",
+                "es": "Líquido rojo",
+                "de": "Kühlmittel rot ab",
+                "zh-Hant": "冷卻液紅色門檻",
+                "zh-Hans": "冷却液红色阈值"
+              },
+              "help": {
+                "en": "Most AIOs are rated to about 60 °C; past 45 °C the loop is losing. The widget keeps the tile while it is past it.",
+                "es": "La mayoría de las AIO aguantan unos 60 °C; por encima de 45 °C el circuito va perdiendo. El widget se queda la tesela mientras la pase.",
+                "de": "Die meisten AIOs sind bis etwa 60 °C ausgelegt; über 45 °C verliert der Kreislauf. Das Widget behält die Kachel, solange es darüber liegt.",
+                "zh-Hant": "多數一體式水冷的額定上限約 60 °C；超過 45 °C 表示循環已散熱不及。超過時小工具會持續佔用方格。",
+                "zh-Hans": "多数一体式水冷的额定上限约 60 °C；超过 45 °C 说明循环已散热不及。超过时小组件会持续占用格子。"
+              },
+              "unit": "°C"
+            },
+            "type": "integer",
+            "minimum": 20,
+            "maximum": 80
+          },
+          "pumpWarn": {
+            "title": "Amber pump under",
+            "default": 800,
+            "x-ui": {
+              "label": {
+                "en": "Amber pump under",
+                "es": "Bomba ámbar por debajo de",
+                "de": "Pumpe gelb unter",
+                "zh-Hant": "水泵低於此轉速顯示琥珀色",
+                "zh-Hans": "水泵低于此转速显示琥珀色"
+              },
+              "unit": "rpm"
+            },
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 6000
+          },
+          "pumpAlert": {
+            "title": "Red pump under",
+            "description": "A pump that stops is a CPU about to throttle. The widget keeps the tile while one is under it.",
+            "default": 300,
+            "x-ui": {
+              "label": {
+                "en": "Red pump under",
+                "es": "Bomba roja por debajo de",
+                "de": "Pumpe rot unter",
+                "zh-Hant": "水泵低於此轉速顯示紅色",
+                "zh-Hans": "水泵低于此转速显示红色"
+              },
+              "help": {
+                "en": "A pump that stops is a CPU about to throttle. The widget keeps the tile while one is under it.",
+                "es": "Una bomba parada es una CPU a punto de frenarse. El widget se queda la tesela mientras una esté por debajo.",
+                "de": "Eine stehende Pumpe ist eine CPU kurz vor der Drosselung. Das Widget behält die Kachel, solange eine darunter liegt.",
+                "zh-Hant": "水泵停轉代表 CPU 即將降頻。只要有水泵低於此值，小工具就會持續佔用方格。",
+                "zh-Hans": "水泵停转意味着 CPU 即将降频。只要有水泵低于此值，小组件就会持续占用格子。"
+              },
+              "unit": "rpm"
+            },
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 6000
+          },
+          "sensors": {
+            "title": "Sensors",
+            "description": "Empty: all. Channel or device names, comma-separated: * matches anything, a leading ! leaves out (Pump, Fan*, !amdgpu).",
+            "default": [],
+            "x-ui": {
+              "label": {
+                "en": "Sensors",
+                "es": "Sensores",
+                "de": "Sensoren",
+                "zh-Hant": "感測器",
+                "zh-Hans": "传感器"
+              },
+              "help": {
+                "en": "Empty: all. Channel or device names, comma-separated: * matches anything, a leading ! leaves out (Pump, Fan*, !amdgpu).",
+                "es": "Vacío: todos. Nombres de canal o de dispositivo separados por comas: * vale por cualquier cosa y un ! delante excluye (Pump, Fan*, !amdgpu).",
+                "de": "Leer: alle. Kanal- oder Gerätenamen, durch Kommas getrennt: * steht für beliebigen Text, ein vorangestelltes ! schließt aus (Pump, Fan*, !amdgpu).",
+                "zh-Hant": "留空：全部。以逗號分隔的通道或裝置名稱：* 符合任何內容，開頭加 ! 表示排除（Pump, Fan*, !amdgpu）。",
+                "zh-Hans": "留空：全部。以逗号分隔的通道或设备名称：* 匹配任意内容，开头加 ! 表示排除（Pump, Fan*, !amdgpu）。"
+              },
+              "widget": "filter"
+            },
+            "type": "array",
+            "items": {
+              "default": "",
+              "x-ui": {
+                "placeholder": "name, group/*, !old-*"
+              },
+              "type": "string"
+            },
+            "x-filter": true
+          },
+          "hideStopped": {
+            "title": "Hide stopped fans",
+            "description": "Empty headers read 0 rpm. A stopped pump is always shown.",
+            "default": true,
+            "x-ui": {
+              "label": {
+                "en": "Hide stopped fans",
+                "es": "Ocultar ventiladores parados",
+                "de": "Stehende Lüfter ausblenden",
+                "zh-Hant": "隱藏停轉的風扇",
+                "zh-Hans": "隐藏停转的风扇"
+              },
+              "help": {
+                "en": "Empty headers read 0 rpm. A stopped pump is always shown.",
+                "es": "Los conectores vacíos marcan 0 rpm. Una bomba parada se muestra siempre.",
+                "de": "Leere Anschlüsse zeigen 0 U/min. Eine stehende Pumpe wird immer gezeigt.",
+                "zh-Hant": "空接頭會顯示 0 轉。停轉的水泵一定會顯示。",
+                "zh-Hans": "空接口会显示 0 转。停转的水泵总会显示。"
+              }
+            },
+            "type": "boolean"
+          }
+        }
+      },
+      "screenshot": "docs/cooling.png",
+      "animated": false,
+      "urgent": true
+    }
+  ],
+  "sources": [
+    {
+      "type": "gaming/frames",
+      "name": {
+        "en": "Game frames",
+        "es": "Fotogramas del juego",
+        "de": "Spiel-Frames",
+        "zh-Hant": "遊戲影格",
+        "zh-Hans": "游戏帧"
+      },
+      "description": {
+        "en": "FPS, 1 % low and frame times of the game being played, from MangoHud (Linux) or PresentMon (Windows). Only while a game runs.",
+        "es": "FPS, 1 % bajo y tiempos de fotograma del juego en marcha, de MangoHud (Linux) o PresentMon (Windows). Solo mientras hay un juego abierto.",
+        "de": "FPS, 1-%-Tief und Frametimes des laufenden Spiels, von MangoHud (Linux) oder PresentMon (Windows). Nur solange ein Spiel läuft.",
+        "zh-Hant": "正在遊玩的遊戲之 FPS、1% 低與影格時間，來自 MangoHud（Linux）或 PresentMon（Windows）。僅在遊戲執行時。",
+        "zh-Hans": "正在玩的游戏的 FPS、1% 低和帧时间，来自 MangoHud（Linux）或 PresentMon（Windows）。仅在游戏运行时。"
+      },
+      "polled": false,
+      "options": {
+        "default": {
+          "backend": "auto",
+          "mangohudFolder": "~/mangohud",
+          "presentmon": "PresentMon",
+          "presentmonCsv": "",
+          "windowMs": 30000,
+          "staleMs": 5000
+        },
+        "x-ui": {},
+        "type": "object",
+        "properties": {
+          "backend": {
+            "title": "Tool",
+            "description": "auto: PresentMon on Windows, MangoHud elsewhere.",
+            "default": "auto",
+            "x-ui": {
+              "label": {
+                "en": "Tool",
+                "es": "Herramienta",
+                "de": "Werkzeug",
+                "zh-Hant": "工具",
+                "zh-Hans": "工具"
+              },
+              "help": {
+                "en": "auto: PresentMon on Windows, MangoHud elsewhere.",
+                "es": "auto: PresentMon en Windows, MangoHud en el resto.",
+                "de": "auto: PresentMon unter Windows, sonst MangoHud.",
+                "zh-Hant": "auto：Windows 上用 PresentMon，其他系統用 MangoHud。",
+                "zh-Hans": "auto：Windows 上用 PresentMon，其他系统用 MangoHud。"
+              },
+              "labels": {
+                "auto": {
+                  "en": "Automatic",
+                  "es": "Automático",
+                  "de": "Automatisch",
+                  "zh-Hant": "自動",
+                  "zh-Hans": "自动"
+                },
+                "mangohud": "MangoHud",
+                "presentmon": "PresentMon"
+              }
+            },
+            "type": "string",
+            "enum": [
+              "auto",
+              "mangohud",
+              "presentmon"
+            ]
+          },
+          "mangohudFolder": {
+            "title": "MangoHud log folder",
+            "description": "MangoHud's output_folder. In MangoHud.conf: output_folder=/home/you/mangohud, autostart_log=1 and log_interval=0 (every frame). The newest log there is followed while it grows.",
+            "default": "~/mangohud",
+            "x-ui": {
+              "label": {
+                "en": "MangoHud log folder",
+                "es": "Carpeta de registros de MangoHud",
+                "de": "MangoHud-Protokollordner",
+                "zh-Hant": "MangoHud 記錄資料夾",
+                "zh-Hans": "MangoHud 日志文件夹"
+              },
+              "help": {
+                "en": "MangoHud's output_folder. In MangoHud.conf: output_folder=/home/you/mangohud, autostart_log=1 and log_interval=0 (every frame). The newest log there is followed while it grows.",
+                "es": "El output_folder de MangoHud. En MangoHud.conf: output_folder=/home/tú/mangohud, autostart_log=1 y log_interval=0 (cada fotograma). Se sigue el registro más reciente mientras crece.",
+                "de": "Der output_folder von MangoHud. In MangoHud.conf: output_folder=/home/du/mangohud, autostart_log=1 und log_interval=0 (jedes Frame). Das neueste Protokoll dort wird verfolgt, solange es wächst.",
+                "zh-Hant": "MangoHud 的 output_folder。在 MangoHud.conf 中設定：output_folder=/home/你/mangohud、autostart_log=1 與 log_interval=0（每個影格）。會跟隨其中最新的記錄檔增長。",
+                "zh-Hans": "MangoHud 的 output_folder。在 MangoHud.conf 中设置：output_folder=/home/你/mangohud、autostart_log=1 和 log_interval=0（每一帧）。会跟随其中最新的日志文件增长。"
+              },
+              "format": "path"
+            },
+            "x-risk": "path",
+            "type": "string"
+          },
+          "presentmon": {
+            "title": "PresentMon program",
+            "description": "PresentMon 2 (the console one), on the PATH or a full path. Run while the source runs, with its CSV on stdout. Needs an administrator or a member of Performance Log Users. Empty: don't run it.",
+            "default": "PresentMon",
+            "x-ui": {
+              "label": {
+                "en": "PresentMon program",
+                "es": "Programa PresentMon",
+                "de": "PresentMon-Programm",
+                "zh-Hant": "PresentMon 程式",
+                "zh-Hans": "PresentMon 程序"
+              },
+              "help": {
+                "en": "PresentMon 2 (the console one), on the PATH or a full path. Run while the source runs, with its CSV on stdout. Needs an administrator or a member of Performance Log Users. Empty: don't run it.",
+                "es": "PresentMon 2 (el de consola), en el PATH o con su ruta completa. Se ejecuta mientras la fuente funciona, con su CSV por la salida estándar. Necesita un administrador o un miembro de Performance Log Users. Vacío: no se ejecuta.",
+                "de": "PresentMon 2 (die Konsolenversion), im PATH oder mit vollem Pfad. Läuft, solange die Datenquelle läuft, mit CSV auf stdout. Braucht einen Administrator oder ein Mitglied von „Leistungsprotokollbenutzer“. Leer: nicht starten.",
+                "zh-Hant": "PresentMon 2（主控台版），在 PATH 中或填完整路徑。資料來源運作時執行，CSV 輸出到標準輸出。需要系統管理員或 Performance Log Users 群組成員。留空：不執行。",
+                "zh-Hans": "PresentMon 2（控制台版），在 PATH 中或填完整路径。数据源运行时执行，CSV 输出到标准输出。需要管理员或 Performance Log Users 组成员。留空：不运行。"
+              }
+            },
+            "x-risk": "exec",
+            "type": "string"
+          },
+          "presentmonCsv": {
+            "title": "PresentMon CSV file",
+            "description": "Set, this file is followed while it grows (PresentMon --output_file) instead of running PresentMon.",
+            "default": "",
+            "x-ui": {
+              "label": {
+                "en": "PresentMon CSV file",
+                "es": "Fichero CSV de PresentMon",
+                "de": "PresentMon-CSV-Datei",
+                "zh-Hant": "PresentMon CSV 檔",
+                "zh-Hans": "PresentMon CSV 文件"
+              },
+              "help": {
+                "en": "Set, this file is followed while it grows (PresentMon --output_file) instead of running PresentMon.",
+                "es": "Si se pone, se sigue este fichero mientras crece (PresentMon --output_file) en vez de ejecutar PresentMon.",
+                "de": "Gesetzt, wird diese Datei verfolgt, solange sie wächst (PresentMon --output_file), statt PresentMon zu starten.",
+                "zh-Hant": "設定後會跟隨此檔案的增長（PresentMon --output_file），而不執行 PresentMon。",
+                "zh-Hans": "设置后会跟随此文件的增长（PresentMon --output_file），而不运行 PresentMon。"
+              },
+              "advanced": true,
+              "placeholder": "C:\\PresentMon\\capture.csv",
+              "format": "path"
+            },
+            "x-risk": "path",
+            "type": "string"
+          },
+          "windowMs": {
+            "title": "Average over",
+            "description": "Of play, for the average FPS and the 1 % low.",
+            "default": 30000,
+            "x-ui": {
+              "label": {
+                "en": "Average over",
+                "es": "Media de los últimos",
+                "de": "Mittel über",
+                "zh-Hant": "平均時段",
+                "zh-Hans": "平均时段"
+              },
+              "help": {
+                "en": "Of play, for the average FPS and the 1 % low.",
+                "es": "De juego, para los FPS medios y el 1 % bajo.",
+                "de": "Spielzeit, für die mittleren FPS und das 1-%-Tief.",
+                "zh-Hant": "遊戲時間，用於計算平均 FPS 與 1% 低。",
+                "zh-Hans": "游戏时间，用于计算平均 FPS 和 1% 低。"
+              },
+              "unit": "ms"
+            },
+            "type": "integer",
+            "minimum": 2000,
+            "maximum": 600000
+          },
+          "staleMs": {
+            "title": "Game gone after",
+            "description": "Without a new frame for this long, no game is running.",
+            "default": 5000,
+            "x-ui": {
+              "label": {
+                "en": "Game gone after",
+                "es": "Juego cerrado tras",
+                "de": "Spiel beendet nach",
+                "zh-Hant": "判定遊戲結束的時間",
+                "zh-Hans": "判定游戏结束的时间"
+              },
+              "help": {
+                "en": "Without a new frame for this long, no game is running.",
+                "es": "Sin un fotograma nuevo durante este tiempo, no hay juego en marcha.",
+                "de": "So lange ohne neues Frame: kein Spiel läuft.",
+                "zh-Hant": "這麼久沒有新影格，就視為沒有遊戲在執行。",
+                "zh-Hans": "这么久没有新帧，就视为没有游戏在运行。"
+              },
+              "advanced": true,
+              "unit": "ms"
+            },
+            "type": "integer",
+            "minimum": 1000,
+            "maximum": 120000
+          }
+        }
+      }
+    },
+    {
+      "type": "gaming/cooling",
+      "name": {
+        "en": "Cooling",
+        "es": "Refrigeración",
+        "de": "Kühlung",
+        "zh-Hant": "散熱",
+        "zh-Hans": "散热"
+      },
+      "description": {
+        "en": "Fan and pump speeds, duty and coolant temperature, from liquidctl, lm-sensors (Linux) or LibreHardwareMonitor (Windows).",
+        "es": "Velocidad y carga de ventiladores y bombas, y temperatura del líquido, de liquidctl, lm-sensors (Linux) o LibreHardwareMonitor (Windows).",
+        "de": "Drehzahl und Last von Lüftern und Pumpen sowie Kühlmitteltemperatur, von liquidctl, lm-sensors (Linux) oder LibreHardwareMonitor (Windows).",
+        "zh-Hant": "風扇與水泵的轉速、負載及冷卻液溫度，來自 liquidctl、lm-sensors（Linux）或 LibreHardwareMonitor（Windows）。",
+        "zh-Hans": "风扇和水泵的转速、负载及冷却液温度，来自 liquidctl、lm-sensors（Linux）或 LibreHardwareMonitor（Windows）。"
+      },
+      "polled": true,
+      "intervalMs": 3000,
+      "options": {
+        "default": {
+          "liquidctl": "liquidctl",
+          "lmSensors": "sensors",
+          "lhmUrl": ""
+        },
+        "x-ui": {},
+        "type": "object",
+        "properties": {
+          "liquidctl": {
+            "title": "liquidctl program",
+            "description": "Runs liquidctl status --json: AIO coolers and Corsair / NZXT controllers. Initialize them once (liquidctl initialize all) after boot if your device asks for it. Empty: off.",
+            "default": "liquidctl",
+            "x-ui": {
+              "label": {
+                "en": "liquidctl program",
+                "es": "Programa liquidctl",
+                "de": "liquidctl-Programm",
+                "zh-Hant": "liquidctl 程式",
+                "zh-Hans": "liquidctl 程序"
+              },
+              "help": {
+                "en": "Runs liquidctl status --json: AIO coolers and Corsair / NZXT controllers. Initialize them once (liquidctl initialize all) after boot if your device asks for it. Empty: off.",
+                "es": "Ejecuta liquidctl status --json: AIO y controladores de Corsair / NZXT. Inicialízalos una vez (liquidctl initialize all) tras arrancar si tu aparato lo pide. Vacío: no se usa.",
+                "de": "Führt liquidctl status --json aus: AIO-Kühler und Corsair-/NZXT-Controller. Nach dem Start einmal initialisieren (liquidctl initialize all), wenn dein Gerät das verlangt. Leer: aus.",
+                "zh-Hant": "執行 liquidctl status --json：一體式水冷與 Corsair / NZXT 控制器。若裝置需要，開機後先初始化一次（liquidctl initialize all）。留空：關閉。",
+                "zh-Hans": "运行 liquidctl status --json：一体式水冷和 Corsair / NZXT 控制器。若设备需要，开机后先初始化一次（liquidctl initialize all）。留空：关闭。"
+              }
+            },
+            "x-risk": "exec",
+            "type": "string"
+          },
+          "lmSensors": {
+            "title": "lm-sensors program",
+            "description": "Runs sensors -j (Linux): motherboard fan headers and the kernel drivers of AIOs. Empty: off.",
+            "default": "sensors",
+            "x-ui": {
+              "label": {
+                "en": "lm-sensors program",
+                "es": "Programa de lm-sensors",
+                "de": "lm-sensors-Programm",
+                "zh-Hant": "lm-sensors 程式",
+                "zh-Hans": "lm-sensors 程序"
+              },
+              "help": {
+                "en": "Runs sensors -j (Linux): motherboard fan headers and the kernel drivers of AIOs. Empty: off.",
+                "es": "Ejecuta sensors -j (Linux): los conectores de ventilador de la placa y los drivers del kernel de las AIO. Vacío: no se usa.",
+                "de": "Führt sensors -j aus (Linux): Lüfteranschlüsse des Mainboards und die Kernel-Treiber von AIOs. Leer: aus.",
+                "zh-Hant": "執行 sensors -j（Linux）：主機板風扇接頭與一體式水冷的核心驅動程式。留空：關閉。",
+                "zh-Hans": "运行 sensors -j（Linux）：主板风扇接口和一体式水冷的内核驱动。留空：关闭。"
+              }
+            },
+            "x-risk": "exec",
+            "type": "string"
+          },
+          "lhmUrl": {
+            "title": "LibreHardwareMonitor web server",
+            "description": "Its /data.json (Options → Remote Web Server → Run). Empty: http://localhost:8085 on Windows, off elsewhere.",
+            "default": "",
+            "x-ui": {
+              "label": {
+                "en": "LibreHardwareMonitor web server",
+                "es": "Servidor web de LibreHardwareMonitor",
+                "de": "Webserver von LibreHardwareMonitor",
+                "zh-Hant": "LibreHardwareMonitor 網頁伺服器",
+                "zh-Hans": "LibreHardwareMonitor 网页服务器"
+              },
+              "help": {
+                "en": "Its /data.json (Options → Remote Web Server → Run). Empty: http://localhost:8085 on Windows, off elsewhere.",
+                "es": "Su /data.json (Options → Remote Web Server → Run). Vacío: http://localhost:8085 en Windows, nada en el resto.",
+                "de": "Sein /data.json (Options → Remote Web Server → Run). Leer: http://localhost:8085 unter Windows, sonst aus.",
+                "zh-Hant": "它的 /data.json（Options → Remote Web Server → Run）。留空：Windows 上為 http://localhost:8085，其他系統關閉。",
+                "zh-Hans": "它的 /data.json（Options → Remote Web Server → Run）。留空：Windows 上为 http://localhost:8085，其他系统关闭。"
+              },
+              "placeholder": "http://localhost:8085",
+              "format": "url"
+            },
+            "x-risk": "network",
+            "type": "string"
+          }
+        }
+      }
+    }
+  ],
+  "interludes": [],
+  "templates": [
+    {
+      "id": "gaming",
+      "name": {
+        "en": "Gaming",
+        "es": "Juegos",
+        "de": "Gaming",
+        "zh-Hant": "遊戲",
+        "zh-Hans": "游戏"
+      },
+      "icon": "gamepad-2",
+      "widgets": [
+        "gaming/fps",
+        "gaming/cooling",
+        "core/clock"
+      ]
+    }
+  ]
+}

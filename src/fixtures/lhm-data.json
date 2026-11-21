@@ -1,0 +1,24 @@
+{"id":0,"Text":"Sensor","Min":"Min","Value":"Value","Max":"Max","ImageURL":"","Children":[
+ {"id":1,"Text":"GAMING-PC","Min":"","Value":"","Max":"","ImageURL":"images_icon/computer.png","Children":[
+  {"id":2,"Text":"ASUS ROG STRIX B650E-F GAMING WIFI","Min":"","Value":"","Max":"","ImageURL":"images_icon/mainboard.png","Children":[
+   {"id":3,"Text":"Nuvoton NCT6799D","Min":"","Value":"","Max":"","ImageURL":"images_icon/chip.png","Children":[
+    {"id":4,"Text":"Voltages","Min":"","Value":"","Max":"","ImageURL":"images_icon/voltage.png","Children":[
+     {"id":5,"Text":"Vcore","Min":"0,960 V","Value":"1,208 V","Max":"1,344 V","SensorId":"/lpc/nct6799d/0/voltage/0","Type":"Voltage","ImageURL":"images/transparent.png","Children":[]}]},
+    {"id":6,"Text":"Temperatures","Min":"","Value":"","Max":"","ImageURL":"images_icon/temperature.png","Children":[
+     {"id":7,"Text":"CPU Core","Min":"38,0 °C","Value":"71,5 °C","Max":"84,0 °C","SensorId":"/lpc/nct6799d/0/temperature/0","Type":"Temperature","ImageURL":"images/transparent.png","Children":[]},
+     {"id":8,"Text":"Water In","Min":"29,0 °C","Value":"33,0 °C","Max":"35,0 °C","SensorId":"/lpc/nct6799d/0/temperature/7","Type":"Temperature","ImageURL":"images/transparent.png","Children":[]}]},
+    {"id":9,"Text":"Fans","Min":"","Value":"","Max":"","ImageURL":"images_icon/fan.png","Children":[
+     {"id":10,"Text":"Fan #1","Min":"0 RPM","Value":"1123 RPM","Max":"1503 RPM","SensorId":"/lpc/nct6799d/0/fan/0","Type":"Fan","ImageURL":"images/transparent.png","Children":[]},
+     {"id":11,"Text":"Fan #2","Min":"0 RPM","Value":"0 RPM","Max":"0 RPM","SensorId":"/lpc/nct6799d/0/fan/1","Type":"Fan","ImageURL":"images/transparent.png","Children":[]},
+     {"id":12,"Text":"AIO Pump","Min":"2210 RPM","Value":"2643 RPM","Max":"2701 RPM","SensorId":"/lpc/nct6799d/0/fan/6","Type":"Fan","ImageURL":"images/transparent.png","Children":[]}]},
+    {"id":13,"Text":"Controls","Min":"","Value":"","Max":"","ImageURL":"images_icon/control.png","Children":[
+     {"id":14,"Text":"Fan #1","Min":"30,0 %","Value":"48,2 %","Max":"60,0 %","SensorId":"/lpc/nct6799d/0/control/0","Type":"Control","ImageURL":"images/transparent.png","Children":[]},
+     {"id":15,"Text":"AIO Pump","Min":"100,0 %","Value":"100,0 %","Max":"100,0 %","SensorId":"/lpc/nct6799d/0/control/6","Type":"Control","ImageURL":"images/transparent.png","Children":[]}]}]}]},
+  {"id":16,"Text":"AMD Ryzen 7 7800X3D","Min":"","Value":"","Max":"","ImageURL":"images_icon/cpu.png","Children":[
+   {"id":17,"Text":"Temperatures","Min":"","Value":"","Max":"","ImageURL":"images_icon/temperature.png","Children":[
+    {"id":18,"Text":"Core (Tctl/Tdie)","Min":"40,1 °C","Value":"72,3 °C","Max":"86,8 °C","SensorId":"/amdcpu/0/temperature/2","Type":"Temperature","ImageURL":"images/transparent.png","Children":[]}]}]},
+  {"id":19,"Text":"NVIDIA GeForce RTX 4080 SUPER","Min":"","Value":"","Max":"","ImageURL":"images_icon/nvidia.png","Children":[
+   {"id":20,"Text":"Fans","Min":"","Value":"","Max":"","ImageURL":"images_icon/fan.png","Children":[
+    {"id":21,"Text":"GPU Fan 1","Min":"0 RPM","Value":"1490 RPM","Max":"1620 RPM","SensorId":"/gpu-nvidia/0/fan/1","Type":"Fan","ImageURL":"images/transparent.png","Children":[]}]},
+   {"id":22,"Text":"Controls","Min":"","Value":"","Max":"","ImageURL":"images_icon/control.png","Children":[
+    {"id":23,"Text":"GPU Fan 1","Min":"30,0 %","Value":"52,0 %","Max":"55,0 %","SensorId":"/gpu-nvidia/0/control/1","Type":"Control","ImageURL":"images/transparent.png","Children":[]}]}]}]}]}

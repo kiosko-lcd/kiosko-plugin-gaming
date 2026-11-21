@@ -1,0 +1,17 @@
+[
+  {
+    "bus": "hid",
+    "address": "/dev/hidraw2",
+    "description": "Corsair Hydro H115i Platinum",
+    "status": [
+      { "key": "Liquid temperature", "value": 31.2, "unit": "°C" },
+      { "key": "Fan 1 speed", "value": 1012, "unit": "rpm" },
+      { "key": "Fan 1 duty", "value": 38, "unit": "%" },
+      { "key": "Fan 2 speed", "value": 1028, "unit": "rpm" },
+      { "key": "Fan 2 duty", "value": 38, "unit": "%" },
+      { "key": "Pump speed", "value": 2390, "unit": "rpm" },
+      { "key": "Pump duty", "value": 66, "unit": "%" },
+      { "key": "Firmware version", "value": "1.1.15", "unit": "" }
+    ]
+  }
+]

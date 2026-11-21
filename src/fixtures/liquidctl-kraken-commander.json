@@ -1,0 +1,26 @@
+[
+  {
+    "bus": "hid",
+    "address": "/dev/hidraw3",
+    "description": "NZXT Kraken X (X53, X63 or X73)",
+    "status": [
+      { "key": "Liquid temperature", "value": 33.6, "unit": "°C" },
+      { "key": "Pump speed", "value": 2681, "unit": "rpm" },
+      { "key": "Pump duty", "value": 70, "unit": "%" }
+    ]
+  },
+  {
+    "bus": "hid",
+    "address": "/dev/hidraw5",
+    "description": "Corsair Commander Core (experimental)",
+    "status": [
+      { "key": "Pump speed", "value": 0, "unit": "rpm" },
+      { "key": "Fan speed 1", "value": 1187, "unit": "rpm" },
+      { "key": "Fan speed 2", "value": 1192, "unit": "rpm" },
+      { "key": "Fan speed 3", "value": 1176, "unit": "rpm" },
+      { "key": "Fan speed 4", "value": 0, "unit": "rpm" },
+      { "key": "Water temperature", "value": 34.1, "unit": "°C" },
+      { "key": "Temperature probe 1", "value": 28.3, "unit": "°C" }
+    ]
+  }
+]

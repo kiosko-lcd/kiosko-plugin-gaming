@@ -1,6 +1,6 @@
 {
   "name": "kiosko-plugin-gaming",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Game FPS, 1 % low and frame times (MangoHud, PresentMon), and the cooling: fans, pumps and coolant (liquidctl, lm-sensors, LibreHardwareMonitor).",
   "type": "module",
   "license": "MIT",

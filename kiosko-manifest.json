@@ -9,7 +9,7 @@
     "zh-Hant": "遊戲",
     "zh-Hans": "游戏"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": {
     "en": "Game FPS, 1 % low and frame times (MangoHud, PresentMon), and the cooling: fans, pumps and coolant (liquidctl, lm-sensors, LibreHardwareMonitor).",
     "es": "FPS del juego, 1 % bajo y tiempos de fotograma (MangoHud, PresentMon), y la refrigeración: ventiladores, bombas y líquido (liquidctl, lm-sensors, LibreHardwareMonitor).",
@@ -759,7 +759,16 @@
         "gaming/fps",
         "gaming/cooling",
         "core/clock"
+      ],
+      "layouts": [
+        "wide",
+        "square",
+        "tall"
       ]
     }
-  ]
+  ],
+  "support": {
+    "issues": "https://github.com/kiosko-lcd/kiosko-plugin-gaming/issues",
+    "docs": "https://github.com/kiosko-lcd/kiosko-plugin-gaming#readme"
+  }
 }

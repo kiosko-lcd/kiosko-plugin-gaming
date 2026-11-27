@@ -55,6 +55,12 @@ test('the cooling widget: coolant, pump and fans with duty; keeps the tile when 
   assert.equal(m.outside, 0);
   const off = renderWidget(coolingWidget, { size: { w: 640, h: 230 }, sources: { [COOLING_SOURCE]: { available: false, reason: 'no cooling tool set', backends: [], fans: [], coolant: [], at: 0 } } });
   assert.deepEqual(off.texts, ['no cooling tool set']);
+  // Empty: no sensor at all, or none passes the filter; never with readings, nor before the first read.
+  assert.equal(widgetState(coolingWidget, 'empty'), false);
+  assert.equal(widgetState(coolingWidget, 'empty', { sources: { [COOLING_SOURCE]: stopped } }), false, 'a stopped pump is the alarm');
+  assert.equal(widgetState(coolingWidget, 'empty', { sources: { [COOLING_SOURCE]: { available: false, reason: 'no cooling tool set', backends: [], fans: [], coolant: [], at: 0 } } }), true);
+  assert.equal(widgetState(coolingWidget, 'empty', { options: { sensors: ['nothing-here'] } }), true, 'none passes the filter');
+  assert.equal(widgetState(coolingWidget, 'empty', { sources: {} }), false, 'no read yet: loading');
 });
 
 test('conventions: thresholds in pairs, no takeOver option, a Gaming page template', () => {

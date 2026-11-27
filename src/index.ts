@@ -290,6 +290,12 @@ export const coolingWidget = defineWidget({
     const reason = s && !s.available ? (s.reasonText ? ctx.t(s.reasonText) : s.reason) : undefined;
     drawCooling(g, ctx, s?.available ? readingsOf(ctx) : undefined, ctx.options, reason);
   },
+  // No fan, pump or coolant sensor to show: no cooling tool found, or none passes the filter.
+  empty: (st) => {
+    if (!coolingOf(st.sources)) return false;
+    const r = readingsOf(st);
+    return !r.fans.length && !r.coolant.length;
+  },
   urgent: (st) => coolingLevel(readingsOf(st), st.options) === 'alert',
   idle: (st) => coolingLevel(readingsOf(st), st.options) === 'normal',
   demo: ({ now }) => ({ sources: { [COOLING_SOURCE]: demoCooling(now) } }),
@@ -298,7 +304,7 @@ export const coolingWidget = defineWidget({
 export default definePlugin({
   id: 'gaming',
   name: { en: 'Gaming', es: 'Juegos', de: 'Gaming', 'zh-Hant': '遊戲', 'zh-Hans': '游戏' },
-  version: '0.1.0',
+  version: '0.1.1',
   languages: LANGS,
   sdk: '^0.2.0',
   permissions: {
